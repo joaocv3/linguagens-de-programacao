@@ -1,0 +1,9 @@
+grammar org.Tutorial with org.eclipse.xtext.common.Terminals
+
+generate tutorial "http://www.Tutorial.org"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
