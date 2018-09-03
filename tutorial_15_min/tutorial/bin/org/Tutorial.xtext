@@ -2,8 +2,25 @@ grammar org.Tutorial with org.eclipse.xtext.common.Terminals
 
 generate tutorial "http://www.Tutorial.org"
 
-Domainmodel :
-    (elements+=Type)*;
+Domainmodel:
+    (elements+=AbstractElement)*;
+ 
+PackageDeclaration:
+    'package' name=QualifiedName '{'
+        (elements+=AbstractElement)*
+    '}';
+ 
+AbstractElement:
+    PackageDeclaration | Type | Import;
+ 
+QualifiedName:
+    ID ('.' ID)*;
+ 
+Import:
+    'import' importedNamespace=QualifiedNameWithWildcard;
+  
+QualifiedNameWithWildcard:
+    QualifiedName '.*'?;
   
 Type:
     DataType | Entity;
@@ -12,9 +29,9 @@ DataType:
     'datatype' name=ID;
  
 Entity:
-    'entity' name=ID ('extends' superType=[Entity])? '{'
+    'entity' name=ID ('extends' superType=[Entity|QualifiedName])? '{'
         (features+=Feature)*
     '}';
  
 Feature:
-    (many?='many')? name=ID ':' type=[Type];
+    (many?='many')? name=ID ':' type=[Type|QualifiedName];s
