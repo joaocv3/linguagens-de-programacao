@@ -21,7 +21,26 @@ class TutorialParsingTest {
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			datatype String
+			datatype Int
+			
+			entity Aluno {
+				name: String
+				age: Int
+				matricula: Int
+			}
+			
+			entity Escola {
+				name: String
+				address: String
+			}
+			
+			entity Materia {
+				name: String
+				id: Int
+			}
+			
+			
 		''')
 		Assert.assertNotNull(result)
 		val errors = result.eResource.errors

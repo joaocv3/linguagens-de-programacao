@@ -34,4 +34,4 @@ Entity:
     '}';
  
 Feature:
-    (many?='many')? name=ID ':' type=[Type|QualifiedName];s
+    (many?='many')? name=ID ':' type=[Type|QualifiedName];

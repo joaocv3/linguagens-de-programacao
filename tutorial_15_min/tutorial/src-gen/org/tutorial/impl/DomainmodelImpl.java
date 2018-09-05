@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.tutorial.AbstractElement;
 import org.tutorial.Domainmodel;
 import org.tutorial.TutorialPackage;
-import org.tutorial.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
    * @generated
    * @ordered
    */
-  protected EList<Type> elements;
+  protected EList<AbstractElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,11 +72,11 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type> getElements()
+  public EList<AbstractElement> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<Type>(Type.class, this, TutorialPackage.DOMAINMODEL__ELEMENTS);
+      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, TutorialPackage.DOMAINMODEL__ELEMENTS);
     }
     return elements;
   }
@@ -126,7 +126,7 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
     {
       case TutorialPackage.DOMAINMODEL__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends Type>)newValue);
+        getElements().addAll((Collection<? extends AbstractElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

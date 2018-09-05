@@ -66,6 +66,9 @@ public class TutorialFactoryImpl extends EFactoryImpl implements TutorialFactory
     switch (eClass.getClassifierID())
     {
       case TutorialPackage.DOMAINMODEL: return createDomainmodel();
+      case TutorialPackage.PACKAGE_DECLARATION: return createPackageDeclaration();
+      case TutorialPackage.ABSTRACT_ELEMENT: return createAbstractElement();
+      case TutorialPackage.IMPORT: return createImport();
       case TutorialPackage.TYPE: return createType();
       case TutorialPackage.DATA_TYPE: return createDataType();
       case TutorialPackage.ENTITY: return createEntity();
@@ -84,6 +87,39 @@ public class TutorialFactoryImpl extends EFactoryImpl implements TutorialFactory
   {
     DomainmodelImpl domainmodel = new DomainmodelImpl();
     return domainmodel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageDeclaration createPackageDeclaration()
+  {
+    PackageDeclarationImpl packageDeclaration = new PackageDeclarationImpl();
+    return packageDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractElement createAbstractElement()
+  {
+    AbstractElementImpl abstractElement = new AbstractElementImpl();
+    return abstractElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Import createImport()
+  {
+    ImportImpl import_ = new ImportImpl();
+    return import_;
   }
 
   /**

@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.tutorial.TutorialPackage;
 import org.tutorial.Type;
@@ -26,7 +25,7 @@ import org.tutorial.Type;
  *
  * @generated
  */
-public class TypeImpl extends MinimalEObjectImpl.Container implements Type
+public class TypeImpl extends AbstractElementImpl implements Type
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

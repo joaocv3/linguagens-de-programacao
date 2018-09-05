@@ -9,6 +9,14 @@
     <genClasses ecoreClass="Tutorial.ecore#//Domainmodel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Tutorial.ecore#//Domainmodel/elements"/>
     </genClasses>
+    <genClasses ecoreClass="Tutorial.ecore#//PackageDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Tutorial.ecore#//PackageDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Tutorial.ecore#//PackageDeclaration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Tutorial.ecore#//AbstractElement"/>
+    <genClasses ecoreClass="Tutorial.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Tutorial.ecore#//Import/importedNamespace"/>
+    </genClasses>
     <genClasses ecoreClass="Tutorial.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Tutorial.ecore#//Type/name"/>
     </genClasses>
