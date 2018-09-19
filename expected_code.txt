@@ -1,3 +1,10 @@
+Dupla: 
+João Vieira
+Juan Collin	
+
+
+=============================== 
+
 datatype String
 datatype Int			
 
