@@ -23,7 +23,7 @@ class TutorialGenerator extends AbstractGenerator {
     override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
         for (e : resource.allContents.toIterable.filter(Entity)) {
             fsa.generateFile(
-                e.name+ ".java",
+                e.name,
                 e.compile)
         }
     }

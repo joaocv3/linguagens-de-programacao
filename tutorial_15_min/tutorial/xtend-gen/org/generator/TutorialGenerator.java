@@ -32,7 +32,7 @@ public class TutorialGenerator extends AbstractGenerator {
     Iterable<Entity> _filter = Iterables.<Entity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Entity.class);
     for (final Entity e : _filter) {
       fsa.generateFile(
-        (e.name + ".java"), 
+        e.name, 
         this.compile(e));
     }
   }
