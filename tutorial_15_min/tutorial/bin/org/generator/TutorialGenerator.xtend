@@ -3,10 +3,13 @@
  */
 package org.generator
 
+import com.google.inject.Inject
+import javax.swing.text.html.parser.Entity
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +18,19 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class TutorialGenerator extends AbstractGenerator {
 
+	@Inject extension IQualifiedNameProvider
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
-	}
+        for (e : resource.allContents.toIterable.filter(Entity)) {
+        	 fsa.generateFile(
+            e.fullyQualifiedName.toString("/") + ".java",
+            e.compile)
+                
+        }
+    }
+		
+		def compile(Entity entity) {
+			throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		}
+		
 }

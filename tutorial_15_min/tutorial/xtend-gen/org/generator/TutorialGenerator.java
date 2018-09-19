@@ -3,10 +3,14 @@
  */
 package org.generator;
 
+import com.google.inject.Inject;
+import javax.swing.text.html.parser.Entity;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +19,18 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class TutorialGenerator extends AbstractGenerator {
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from Entity to EObject"
+      + "\nType mismatch: cannot convert from void to CharSequence");
+  }
+  
+  public void compile(final Entity entity) {
+    throw new UnsupportedOperationException("TODO: auto-generated method stub");
   }
 }
