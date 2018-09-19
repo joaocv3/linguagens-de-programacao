@@ -3,14 +3,18 @@
  */
 package org.generator;
 
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import javax.swing.text.html.parser.Entity;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -25,12 +29,18 @@ public class TutorialGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from Entity to EObject"
-      + "\nType mismatch: cannot convert from void to CharSequence");
+    Iterable<Entity> _filter = Iterables.<Entity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Entity.class);
+    for (final Entity e : _filter) {
+      fsa.generateFile(
+        (e.name + ".java"), 
+        this.compile(e));
+    }
   }
   
-  public void compile(final Entity entity) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  public CharSequence compile(final Entity e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("code");
+    _builder.newLine();
+    return _builder;
   }
 }
